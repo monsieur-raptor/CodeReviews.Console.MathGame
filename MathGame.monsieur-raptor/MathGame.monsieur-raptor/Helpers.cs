@@ -15,5 +15,16 @@
             while (result[0] % result[1] != 0);
             return result;
         }
+
+        internal static int[] GetRandomNumbers()
+        {
+            Random random = new Random();
+
+            int[] result = new int[2];
+            result[0] = random.Next(0, 9);
+            result[1] = random.Next(0, 9);
+
+            return result;
+        }
     }
 }

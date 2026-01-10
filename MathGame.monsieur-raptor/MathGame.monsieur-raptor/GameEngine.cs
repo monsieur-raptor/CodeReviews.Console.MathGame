@@ -11,9 +11,9 @@
 
             for(int i = 1; i <= MAX_GAMES; i++)
             {
-                Random random = new Random();
-                int firstNumber = random.Next(0, 9);
-                int secondNumber = random.Next(0, 9);
+                int[] randomNumbers = Helpers.GetRandomNumbers();
+                int firstNumber = randomNumbers[0];
+                int secondNumber = randomNumbers[1];
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
                 Console.WriteLine($"{firstNumber} + {secondNumber}");

@@ -2,7 +2,7 @@
 {
     internal class Menu
     {
-        string gameName;
+        string gameType;
 
         GameEngine gameEngine = new();
         internal void showMenu(string name, DateTime date)
@@ -28,20 +28,20 @@
                 switch (gameSelected.Trim().ToLower())
                 {
                     case "a":
-                        gameName = "Addition";
-                        gameEngine.AdditionGame(gameName);
+                        gameType = "Addition";
+                        gameEngine.AdditionGame(gameType);
                         break;
                     case "s":
-                        gameName = "Substraction";
-                        gameEngine.SubstractionGame(gameName);
+                        gameType = "Substraction";
+                        gameEngine.SubstractionGame(gameType);
                         break;
                     case "m":
-                        gameName = "Multiplication";
-                        gameEngine.MultiplicationGame(gameName);
+                        gameType = "Multiplication";
+                        gameEngine.MultiplicationGame(gameType);
                         break;
                     case "d":
-                        gameName = "Division";
-                        gameEngine.DivisionGame(gameName);
+                        gameType = "Division";
+                        gameEngine.DivisionGame(gameType);
                         break;
                     case "q":
                         Console.WriteLine("Thanks for playing. See you soon!");

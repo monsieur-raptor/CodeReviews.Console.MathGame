@@ -4,51 +4,92 @@
     {
         const int MAX_GAMES = 5;
 
-        internal void AdditionGame(string gameName)
+        internal void AdditionGame(string gameType)
         {
             Console.Clear();
-            Console.WriteLine($"Let's play with {gameName}s!\n");
+            Console.WriteLine($"Let's play with {gameType}s!\n");
+            int score = 0;
 
             for(int i = 1; i <= MAX_GAMES; i++)
             {
                 int[] randomNumbers = Helpers.GetRandomNumbers();
                 int firstNumber = randomNumbers[0];
                 int secondNumber = randomNumbers[1];
+                int result = firstNumber + secondNumber;
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
-                Console.WriteLine($"{firstNumber} + {secondNumber}");
+                Console.WriteLine("---");
+                Console.Write($"{firstNumber} + {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
 
-                if (int.Parse(playerAnswer) == firstNumber + secondNumber)
-                {
-                    Console.WriteLine("Your answer is correct!");
-                }
-                else
-                {
-                    Console.WriteLine("Your answer is incorrect.");
-                }
-                Console.WriteLine("---");
-            }            
+                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+            }
         }
 
-        internal void SubstractionGame(string gameName)
+        internal void SubstractionGame(string gameType)
         {
-            Console.WriteLine("You selected Substraction");
+            Console.Clear();
+            Console.WriteLine($"Let's play with {gameType}s!\n");
+            int score = 0;
+
+            for (int i = 1; i <= MAX_GAMES; i++)
+            {
+                int[] randomNumbers = Helpers.GetRandomNumbers();
+                int firstNumber = randomNumbers[0];
+                int secondNumber = randomNumbers[1];
+                int result = firstNumber - secondNumber;
+
+                Console.WriteLine($"Game {i}/{MAX_GAMES}");
+                Console.Write($"{firstNumber} - {secondNumber} = ");
+                string playerAnswer = Console.ReadLine();
+
+                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+
+            }
         }
 
-        internal void MultiplicationGame(string gameName)
+        internal void MultiplicationGame(string gameType)
         {
-            Console.WriteLine("You selected Multiplication");
+            Console.Clear();
+            Console.WriteLine($"Let's play with {gameType}s!\n");
+            int score = 0;
+
+            for (int i = 1; i <= MAX_GAMES; i++)
+            {
+                int[] randomNumbers = Helpers.GetRandomNumbers();
+                int firstNumber = randomNumbers[0];
+                int secondNumber = randomNumbers[1];
+                int result = firstNumber * secondNumber;
+
+                Console.WriteLine($"Game {i}/{MAX_GAMES}");
+                Console.Write($"{firstNumber} x {secondNumber} = ");
+                string playerAnswer = Console.ReadLine();
+
+                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+
+            }
         }
 
-        internal void DivisionGame(string gameName)
+        internal void DivisionGame(string gameType)
         {
-            Console.WriteLine("You selected Division");
-            int[] divisonNumbers = Helpers.GetDivisionNumbers();
-            int firstNumber = divisonNumbers[0];
-            int secondNumber = divisonNumbers[1];
+            Console.Clear();
+            Console.WriteLine($"Let's play with {gameType}s!\n");
+            int score = 0;
 
-            Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
+            for (int i = 1; i <= MAX_GAMES; i++)
+            {
+                int[] divisonNumbers = Helpers.GetDivisionNumbers();
+                int firstNumber = divisonNumbers[0];
+                int secondNumber = divisonNumbers[1];
+                int result = firstNumber / secondNumber;
+
+                Console.WriteLine($"Game {i}/{MAX_GAMES}");
+                Console.Write($"{firstNumber} / {secondNumber} = ");
+                string playerAnswer = Console.ReadLine();
+
+                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+
+            }
         }
     }
 }

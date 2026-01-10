@@ -26,5 +26,25 @@
 
             return result;
         }
+
+        internal static int checkAnswer(int score, int i, int result, string playerAnswer)
+        {
+            if (int.Parse(playerAnswer) == result)
+            {
+                score++;
+                Console.Write("Your answer was correct! ");
+                Console.WriteLine(i != 5 ? "Type any key for the next question" : "Type any key to continue");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.Write("Your answer was incorrect! ");
+                Console.WriteLine(i != 5 ? "Type any key for the next question" : "Type any key to continue");
+                Console.ReadLine();
+            }
+            Console.WriteLine("---");
+            if (i == 5) Console.WriteLine($"Game over. Your final score is {score}\n");
+            return score;
+        }
     }
 }

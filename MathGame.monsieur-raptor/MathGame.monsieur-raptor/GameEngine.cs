@@ -18,12 +18,13 @@
                 int result = firstNumber + secondNumber;
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
-                Console.WriteLine("---");
+                Console.WriteLine("-----");
                 Console.Write($"{firstNumber} + {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
             }
+            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
         }
 
         internal void SubstractionGame(string gameType)
@@ -40,12 +41,13 @@
                 int result = firstNumber - secondNumber;
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
+                Console.WriteLine("-----");
                 Console.Write($"{firstNumber} - {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
-
             }
+            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
         }
 
         internal void MultiplicationGame(string gameType)
@@ -62,12 +64,13 @@
                 int result = firstNumber * secondNumber;
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
+                Console.WriteLine("-----");
                 Console.Write($"{firstNumber} x {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
-
             }
+            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
         }
 
         internal void DivisionGame(string gameType)
@@ -84,12 +87,13 @@
                 int result = firstNumber / secondNumber;
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
+                Console.WriteLine("-----");
                 Console.Write($"{firstNumber} / {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
-
             }
+            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
         }
     }
 }

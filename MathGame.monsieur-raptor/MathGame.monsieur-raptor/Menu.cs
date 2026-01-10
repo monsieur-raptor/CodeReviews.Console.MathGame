@@ -15,6 +15,7 @@
             do
             {
                 Console.WriteLine($@"What game do you want to play today? Choose from the options below:
+                    V - View previous games
                     A - Addition
                     S - Substraction
                     M - Multiplication
@@ -27,6 +28,9 @@
 
                 switch (gameSelected.Trim().ToLower())
                 {
+                    case "v":
+                        Helpers.PrintGames();
+                        break;
                     case "a":
                         gameType = "Addition";
                         gameEngine.AdditionGame(gameType);

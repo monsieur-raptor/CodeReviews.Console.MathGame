@@ -1,10 +1,12 @@
-﻿namespace MathGame.monsieur_raptor
+﻿using MathGame.monsieur_raptor.Models;
+
+namespace MathGame.monsieur_raptor
 {
     internal class GameEngine
     {
         const int MAX_GAMES = 5;
 
-        internal void AdditionGame(string gameType)
+        internal void AdditionGame(GameType gameType)
         {
             Console.Clear();
             Console.WriteLine($"Let's play with {gameType}s!\n");
@@ -21,13 +23,14 @@
                 Console.WriteLine("-----");
                 Console.Write($"{firstNumber} + {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
+                playerAnswer = Helpers.ValidateResults(playerAnswer);
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
             }
-            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
+            Helpers.AddToHistory(score, gameType);
         }
 
-        internal void SubstractionGame(string gameType)
+        internal void SubstractionGame(GameType gameType)
         {
             Console.Clear();
             Console.WriteLine($"Let's play with {gameType}s!\n");
@@ -44,13 +47,14 @@
                 Console.WriteLine("-----");
                 Console.Write($"{firstNumber} - {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
+                playerAnswer = Helpers.ValidateResults(playerAnswer);
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
             }
-            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
+            Helpers.AddToHistory(score, gameType);
         }
 
-        internal void MultiplicationGame(string gameType)
+        internal void MultiplicationGame(GameType gameType)
         {
             Console.Clear();
             Console.WriteLine($"Let's play with {gameType}s!\n");
@@ -67,13 +71,14 @@
                 Console.WriteLine("-----");
                 Console.Write($"{firstNumber} x {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
+                playerAnswer = Helpers.ValidateResults(playerAnswer);
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
             }
-            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
+            Helpers.AddToHistory(score, gameType);
         }
 
-        internal void DivisionGame(string gameType)
+        internal void DivisionGame(GameType gameType)
         {
             Console.Clear();
             Console.WriteLine($"Let's play with {gameType}s!\n");
@@ -90,10 +95,11 @@
                 Console.WriteLine("-----");
                 Console.Write($"{firstNumber} / {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
+                playerAnswer = Helpers.ValidateResults(playerAnswer);
 
                 score = Helpers.checkAnswer(score, i, result, playerAnswer);
             }
-            Helpers.games.Add($"{DateTime.Now} - {gameType}: {score} pts");
+            Helpers.AddToHistory(score, gameType);
         }
     }
 }

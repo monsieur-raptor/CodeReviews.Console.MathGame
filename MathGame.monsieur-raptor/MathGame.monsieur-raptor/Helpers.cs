@@ -1,10 +1,12 @@
 ﻿using System.Security.AccessControl;
+using MathGame.monsieur_raptor.Models;
 
 namespace MathGame.monsieur_raptor
 {
     internal class Helpers
     {
-        internal static List<string> games = new List<string>();
+        internal static List<Game> games = new List<Game>();
+
         internal static int[] GetDivisionNumbers()
         {
             Random random = new Random();
@@ -33,18 +35,28 @@ namespace MathGame.monsieur_raptor
             {
                 score++;
                 Console.Write("Your answer was correct! ");
-                Console.WriteLine(i != 5 ? "Type any key for the next question" : "Type any key to continue");
-                Console.ReadLine();
+                Console.WriteLine(i != 5 ? "Press Enter for the next question" : "Press any key to continue");
+                Console.ReadKey(false);
             }
             else
             {
                 Console.Write("Your answer was incorrect! ");
-                Console.WriteLine(i != 5 ? "Type any key for the next question" : "Type any key to continue");
-                Console.ReadLine();
+                Console.WriteLine(i != 5 ? "Press Enter for the next question" : "Press any key to continue");
+                Console.ReadKey(false);
             }
             Console.WriteLine("-----");
-            if (i == 5) Console.WriteLine($"Game over. Your final score is {score}\n");
+            if (i == 5) Console.WriteLine($"Game over. Your final score is {score}\nPress Enter to go back to the main menu.\n");
             return score;
+        }
+
+        public static void AddToHistory(int score, GameType gameType)
+        {
+            games.Add(new Game
+            {
+                Date = DateTime.Now,
+                Score = score,
+                Type = gameType
+            });
         }
 
         internal static void PrintGames()
@@ -54,11 +66,34 @@ namespace MathGame.monsieur_raptor
             Console.WriteLine("----------------------------------------------------");
             foreach (var game in games)
             {
-                Console.WriteLine(game);
+                Console.WriteLine($"{game.Date} - {game.Type}: {game.Score}pts");
             }
             Console.WriteLine("----------------------------------------------------\n"); ;
             Console.WriteLine("Press any key to return to Main Menu");
-            Console.ReadLine();
+            Console.ReadKey(false);
+        }
+
+        internal static string? ValidateResults(string playerAnswer)
+        {
+            while (string.IsNullOrEmpty(playerAnswer) || !Int32.TryParse(playerAnswer, out _))
+            {
+                Console.WriteLine("Your answer needs to be an interger. Try again.");
+                playerAnswer = Console.ReadLine();
+            }
+            return playerAnswer;
+        }
+
+        internal static string GetName()
+        {
+            Console.Write("Enter your name > ");
+            string name = Console.ReadLine();
+            while (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("Your name can't be empty.");
+                Console.Write("> ");
+                name = Console.ReadLine();
+            }
+            return name;
         }
     }
 }

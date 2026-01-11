@@ -5,7 +5,7 @@ internal class Program
     private static void Main(string[] args)
     {
         var menu = new Menu();
-        string name = Menu.GetName();
+        string name = Helpers.GetName();
 
         var date = DateTime.Now;
         menu.showMenu(name, date);

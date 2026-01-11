@@ -7,7 +7,7 @@ namespace MathGame.monsieur_raptor
         GameType gameType;
 
         GameEngine gameEngine = new();
-        internal void showMenu(string name, DateTime date)
+        internal void ShowMenu(string name, DateTime date)
         {
             Console.Clear();
             Console.WriteLine($"Hello, {name}. It's {date.DayOfWeek}. This is your math's game. That's great that you're working on improving yourself!\n");

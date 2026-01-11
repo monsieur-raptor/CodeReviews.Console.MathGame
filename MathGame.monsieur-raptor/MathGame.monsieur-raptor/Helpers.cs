@@ -29,7 +29,7 @@ namespace MathGame.monsieur_raptor
             return result;
         }
 
-        internal static int checkAnswer(int score, int i, int result, string playerAnswer)
+        internal static int CheckAnswer(int score, int i, int result, string playerAnswer)
         {
             if (int.Parse(playerAnswer) == result)
             {
@@ -68,7 +68,7 @@ namespace MathGame.monsieur_raptor
             {
                 Console.WriteLine($"{game.Date} - {game.Type}: {game.Score}pts");
             }
-            Console.WriteLine("----------------------------------------------------\n"); ;
+            Console.WriteLine("----------------------------------------------------\n");
             Console.WriteLine("Press any key to return to Main Menu");
             Console.ReadKey(false);
         }

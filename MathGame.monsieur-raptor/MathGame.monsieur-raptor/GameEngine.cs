@@ -25,7 +25,7 @@ namespace MathGame.monsieur_raptor
                 string playerAnswer = Console.ReadLine();
                 playerAnswer = Helpers.ValidateResults(playerAnswer);
 
-                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
             }
             Helpers.AddToHistory(score, gameType);
         }
@@ -49,7 +49,7 @@ namespace MathGame.monsieur_raptor
                 string playerAnswer = Console.ReadLine();
                 playerAnswer = Helpers.ValidateResults(playerAnswer);
 
-                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
             }
             Helpers.AddToHistory(score, gameType);
         }
@@ -73,7 +73,7 @@ namespace MathGame.monsieur_raptor
                 string playerAnswer = Console.ReadLine();
                 playerAnswer = Helpers.ValidateResults(playerAnswer);
 
-                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
             }
             Helpers.AddToHistory(score, gameType);
         }
@@ -97,7 +97,7 @@ namespace MathGame.monsieur_raptor
                 string playerAnswer = Console.ReadLine();
                 playerAnswer = Helpers.ValidateResults(playerAnswer);
 
-                score = Helpers.checkAnswer(score, i, result, playerAnswer);
+                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
             }
             Helpers.AddToHistory(score, gameType);
         }

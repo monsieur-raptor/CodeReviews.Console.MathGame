@@ -8,6 +8,6 @@ internal class Program
         string name = Helpers.GetName();
 
         var date = DateTime.Now;
-        menu.showMenu(name, date);
+        menu.ShowMenu(name, date);
     }
 }

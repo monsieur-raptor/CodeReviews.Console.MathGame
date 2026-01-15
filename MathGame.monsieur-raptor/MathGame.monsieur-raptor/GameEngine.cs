@@ -6,94 +6,50 @@ namespace MathGame.monsieur_raptor
     {
         const int MAX_GAMES = 5;
 
-        internal void AdditionGame(GameType gameType)
+        internal void Calculation(GameType gameType)
         {
             Console.Clear();
             Console.WriteLine($"Let's play with {gameType}s!\n");
-            int score = 0;
-
-            for(int i = 1; i <= MAX_GAMES; i++)
-            {
-                int[] randomNumbers = Helpers.GetRandomNumbers();
-                int firstNumber = randomNumbers[0];
-                int secondNumber = randomNumbers[1];
-                int result = firstNumber + secondNumber;
-
-                Console.WriteLine($"Game {i}/{MAX_GAMES}");
-                Console.WriteLine("-----");
-                Console.Write($"{firstNumber} + {secondNumber} = ");
-                string playerAnswer = Console.ReadLine();
-                playerAnswer = Helpers.ValidateResults(playerAnswer);
-
-                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
-            }
-            Helpers.AddToHistory(score, gameType);
-        }
-
-        internal void SubstractionGame(GameType gameType)
-        {
-            Console.Clear();
-            Console.WriteLine($"Let's play with {gameType}s!\n");
+            char gameOperator = new char();
+            int result = new int();
+            int[] randomNumbers = new int[2];
             int score = 0;
 
             for (int i = 1; i <= MAX_GAMES; i++)
             {
-                int[] randomNumbers = Helpers.GetRandomNumbers();
+                if (gameType != GameType.Division)
+                    randomNumbers = Helpers.GetRandomNumbers();
+                else
+                    randomNumbers = Helpers.GetDivisionNumbers();
+
                 int firstNumber = randomNumbers[0];
                 int secondNumber = randomNumbers[1];
-                int result = firstNumber - secondNumber;
+
+                switch(gameType)
+                {
+                    case GameType.Addition:
+                        result = firstNumber + secondNumber;
+                        gameOperator = '+';
+                        break;
+                    case GameType.Substraction:
+                        result = firstNumber - secondNumber;
+                        gameOperator = '-';
+                        break;
+                    case GameType.Multiplication:
+                        result = firstNumber * secondNumber;
+                        gameOperator = '*';
+                        break;
+                    case GameType.Division:
+                        result = firstNumber / secondNumber;
+                        gameOperator = '/';
+                        break;
+                    default:
+                        break;
+                }
 
                 Console.WriteLine($"Game {i}/{MAX_GAMES}");
                 Console.WriteLine("-----");
-                Console.Write($"{firstNumber} - {secondNumber} = ");
-                string playerAnswer = Console.ReadLine();
-                playerAnswer = Helpers.ValidateResults(playerAnswer);
-
-                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
-            }
-            Helpers.AddToHistory(score, gameType);
-        }
-
-        internal void MultiplicationGame(GameType gameType)
-        {
-            Console.Clear();
-            Console.WriteLine($"Let's play with {gameType}s!\n");
-            int score = 0;
-
-            for (int i = 1; i <= MAX_GAMES; i++)
-            {
-                int[] randomNumbers = Helpers.GetRandomNumbers();
-                int firstNumber = randomNumbers[0];
-                int secondNumber = randomNumbers[1];
-                int result = firstNumber * secondNumber;
-
-                Console.WriteLine($"Game {i}/{MAX_GAMES}");
-                Console.WriteLine("-----");
-                Console.Write($"{firstNumber} x {secondNumber} = ");
-                string playerAnswer = Console.ReadLine();
-                playerAnswer = Helpers.ValidateResults(playerAnswer);
-
-                score = Helpers.CheckAnswer(score, i, result, playerAnswer);
-            }
-            Helpers.AddToHistory(score, gameType);
-        }
-
-        internal void DivisionGame(GameType gameType)
-        {
-            Console.Clear();
-            Console.WriteLine($"Let's play with {gameType}s!\n");
-            int score = 0;
-
-            for (int i = 1; i <= MAX_GAMES; i++)
-            {
-                int[] divisonNumbers = Helpers.GetDivisionNumbers();
-                int firstNumber = divisonNumbers[0];
-                int secondNumber = divisonNumbers[1];
-                int result = firstNumber / secondNumber;
-
-                Console.WriteLine($"Game {i}/{MAX_GAMES}");
-                Console.WriteLine("-----");
-                Console.Write($"{firstNumber} / {secondNumber} = ");
+                Console.Write($"{firstNumber} {gameOperator} {secondNumber} = ");
                 string playerAnswer = Console.ReadLine();
                 playerAnswer = Helpers.ValidateResults(playerAnswer);
 

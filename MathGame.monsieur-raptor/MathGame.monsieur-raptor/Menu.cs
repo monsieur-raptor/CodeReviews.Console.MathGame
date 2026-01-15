@@ -26,6 +26,7 @@ namespace MathGame.monsieur_raptor
     S - Substraction
     M - Multiplication
     D - Division
+    R - Random game
     Q - Quit the program");
 
                 Console.WriteLine("----------------------------------------------------");
@@ -39,19 +40,23 @@ namespace MathGame.monsieur_raptor
                         break;
                     case "a":
                         gameType = GameType.Addition;
-                        gameEngine.AdditionGame(gameType);
+                        gameEngine.Calculation(gameType);
                         break;
                     case "s":
                         gameType = GameType.Substraction;
-                        gameEngine.SubstractionGame(gameType);
+                        gameEngine.Calculation(gameType);
                         break;
                     case "m":
                         gameType = GameType.Multiplication;
-                        gameEngine.MultiplicationGame(gameType);
+                        gameEngine.Calculation(gameType);
                         break;
                     case "d":
                         gameType = GameType.Division;
-                        gameEngine.DivisionGame(gameType);
+                        gameEngine.Calculation(gameType);
+                        break;
+                    case "r":
+                        gameType = Helpers.RandomGameSelector();
+                        gameEngine.Calculation(gameType);
                         break;
                     case "q":
                         Console.WriteLine("Thanks for playing. See you soon!");

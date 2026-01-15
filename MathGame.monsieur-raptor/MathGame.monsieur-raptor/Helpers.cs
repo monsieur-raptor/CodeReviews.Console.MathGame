@@ -1,5 +1,6 @@
-﻿using System.Security.AccessControl;
-using MathGame.monsieur_raptor.Models;
+﻿using MathGame.monsieur_raptor.Models;
+using System;
+using System.Security.AccessControl;
 
 namespace MathGame.monsieur_raptor
 {
@@ -57,6 +58,33 @@ namespace MathGame.monsieur_raptor
                 Score = score,
                 Type = gameType
             });
+        }
+
+        internal static GameType RandomGameSelector()
+        {
+            GameType gameType = new GameType();
+            Random random = new Random();
+            int gameTypeIndex = random.Next(0, Enum.GetNames(typeof(GameType)).Length);
+
+            switch (gameTypeIndex)
+            {
+                case 0:
+                    gameType = GameType.Addition;
+                    break;
+                case 1:
+                    gameType = GameType.Substraction;
+                    break;
+                case 2:
+                    gameType = GameType.Multiplication;
+                    break;
+                case 3:
+                    gameType = GameType.Division;
+                    break;
+                default:
+                    Console.WriteLine("Wrong game selected!");
+                    break;
+            }
+            return gameType;
         }
 
         internal static void PrintGames()
